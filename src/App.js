@@ -21,6 +21,7 @@ import Overview from './scenes/Overview/index';
 import Requests from './scenes/Requests/index';
 import Sites from './scenes/Sites/index';
 import AddSite from './scenes/Sites/Add/index'
+import SiteDetails from './scenes/Sites/Details';
 import { ContainerStyles } from './styles/Container';
 
 const options = [
@@ -91,6 +92,7 @@ function App() {
         <Route path="/requests" element={<Requests />}></Route>
         <Route path="/sites" element={<Sites />}></Route>
         <Route path="/sites/new" element={<AddSite />}></Route>
+        <Route path="/site/:id" element={<SiteDetails />}></Route>
       </Routes>
     </Router>
   );

@@ -61,7 +61,7 @@ padding: 0 24px;
 
 const SitesListStyles = styled.div`
 & a { text-decoration: none; }
-& .site:nth-child(odd) { background: #fbfbfb; }
+& .site:nth-child(even) { background: #fbfbfb; }
 
 & .site { 
     padding: 0 24px;

@@ -9,10 +9,11 @@ const RowStyles = styled.div`
 display: flex;
 align-items: center; 
 padding: 4px 24px;
+min-height: 40px;
 
-&:nth-child(odd) { background: #fbfbfb; }
+&:nth-child(even) { background: #fbfbfb; }
 & .row-label { width: 27%; }
-& .row-content { width: 73%; }
+& .row-content { width: 73%; font-weight: 600; }
 `
 
 const Table = ({data}) => {
