@@ -38,6 +38,7 @@ function App() {
         setAuthToken(false);
       }
     }
+    navigate('/login')
   }, []);
 
   const logoutUser = async () => {

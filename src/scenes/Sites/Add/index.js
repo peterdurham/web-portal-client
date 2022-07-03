@@ -17,6 +17,13 @@ const selectOptions = [
     { label: 'Site is Live', value: 'site-live' },
 ]
 
+const AddSiteStyles = styled.div`
+width: 680px;
+margin: 0 auto;
+padding: 24px;
+h2 { border-bottom: 1px solid #e8ebed; padding-bottom: 10px; margin-bottom: 30px; }
+`
+
 const FormStyles = styled.form`
 // & input, & select { margin-bottom: 20px; }
 display:flex;
@@ -27,9 +34,6 @@ flex-direction: column;
     margin-top: 30px;
 }
 `
-
-
-
 
 const AddSite = () => {
     const navigate = useNavigate()
@@ -86,8 +90,8 @@ const AddSite = () => {
     return (
         <ContainerStyles>
             <Card>
-                <div style={{ width: '680px', margin: '0 auto' }}>
-                    <h1 style={{ marginBottom: '20px' }}>Add New Site</h1>
+                <AddSiteStyles>
+                    <h2 style={{ marginBottom: '20px' }}>Add New Site</h2>
                     {/* <Link to="/sites">
                         <Button type="primary">arrow Back to Sites</Button>
                     </Link> */}
@@ -95,7 +99,7 @@ const AddSite = () => {
                         <Table data={tableData} />
                         <Button type="primary">Submit</Button>
                     </FormStyles>
-                </div>
+                </AddSiteStyles>
             </Card>
         </ContainerStyles>
     )
