@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`
     line-height: 24px;
     font-weight: 400;
   }
+  label {
+    display: block;
+    margin: 16px 0 8px;
+  }
   .text-dark { color: #34383C; }
   .text-light { color: #676C6F; }
   .text-lightest { color: #34383C; opacity: .38; }

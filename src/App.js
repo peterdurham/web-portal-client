@@ -1,19 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode";
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import GlobalStyle from './styles/globalStyles';
 import isEmpty from "./utils/isEmpty"
 import setAuthToken from "./utils/setAuthToken";
 
-import Register from "./Register";
-import Login from "./Login";
-import Button from './components/Button'
-import Header from './components/Header'
-import Page from './components/Page'
-import Card from './components/Card';
-import Chip from './components/Chip';
-import TextField from './components/TextField';
-import Select from './components/Select';
+import Register from "./scenes/Auth/Register";
+import Login from "./scenes/Auth/Login";
 import Navbar from './components/Navbar';
 import MenuLinks from './components/MenuLinks';
 
@@ -24,15 +17,9 @@ import AddSite from './scenes/Sites/Add/index'
 import SiteDetails from './scenes/Sites/Details';
 import { ContainerStyles } from './styles/Container';
 
-const options = [
-  { label: 'Option 1', value: 'option-1' },
-  { label: 'Option 2', value: 'option-2' },
-  { label: 'Option 3', value: 'option-3' },
-  { label: 'Option 4', value: 'option-4' },
-]
-
 function App() {
   const [auth, setAuth] = useState({ isAuthenticated: false, user: {} });
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (localStorage.jwtToken) {
@@ -57,33 +44,21 @@ function App() {
     localStorage.removeItem("jwtToken");
     setAuth({ isAuthenticated: false, user: {} });
     setAuthToken(false);
+    navigate("/login")
   };
 
   return (
-    <Router className="App">
+    <div className="App">
       <GlobalStyle />
-      <nav>
-                            {auth.isAuthenticated ? (
-                                <li>
-                                    <button onClick={logoutUser}>
-                                        Logout
-                                    </button>
-                                </li>
-                            ) : (
-                                <>
-                                    <li>
-                                        <NavLink to="/register">Register</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/login">Login</NavLink>
-                                    </li>
-                                </>
-                            )}
-                        </nav>
-      <Navbar />
-      <ContainerStyles>
-        <MenuLinks />
-      </ContainerStyles>
+      <Navbar auth={auth} logoutUser={logoutUser} />
+      {auth.isAuthenticated && (
+        <>
+          <ContainerStyles>
+            <MenuLinks />
+          </ContainerStyles>
+        </>
+      )}
+
       <Routes>
         <Route path="/register" element={<Register setAuth={setAuth} />}></Route>
         <Route path="/login" element={<Login setAuth={setAuth} />}></Route>
@@ -94,7 +69,7 @@ function App() {
         <Route path="/sites/new" element={<AddSite />}></Route>
         <Route path="/site/:id" element={<SiteDetails />}></Route>
       </Routes>
-    </Router>
+    </div>
   );
 }
 
