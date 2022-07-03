@@ -16,13 +16,15 @@ font-weight: 700;
 }
 `
 
-const TextField = ({ value, placeholder, onChange }) => {
+const TextField = ({ value, placeholder, onChange, defaultValue, id }) => {
     return (
         <TextFieldStyles
             type="text"
             value={value}
             placeholder={placeholder}
             onChange={onChange}
+            defaultValue={defaultValue}
+            id={id}
         />
     )
 }

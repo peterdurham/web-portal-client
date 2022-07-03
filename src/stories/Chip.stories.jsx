@@ -28,3 +28,9 @@ Secondary.args = {
     text: 'Failed',
 };
 
+export const Warn = Template.bind({});
+Warn.args = {
+    type: 'warn',
+    text: 'Warning',
+};
+

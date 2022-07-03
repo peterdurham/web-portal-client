@@ -10,10 +10,10 @@ const types = {
 
 const Button = ({ type, backgroundColor, color, size, children, ...props }) => {
   const typeClassName = types[type]
-  
+
   return (
     <ButtonStyles
-      type="button"
+      type="submit"
       className={['storybook-button', `storybook-button--${size}`, typeClassName].join(' ')}
       style={backgroundColor && { backgroundColor }}
       {...props}

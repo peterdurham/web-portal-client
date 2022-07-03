@@ -17,10 +17,11 @@ font-weight: 700;
 }
 `
 
-const Select = ({ options }) => {
+const Select = ({ options, onChange }) => {
     return (
         <SelectStyles
             type="select"
+            onChange={onChange}
         // value={value}
         // placeholder={placeholder}
         // onChange={onChange}

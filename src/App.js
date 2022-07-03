@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Button from './components/Button'
 import Header from './components/Header'
@@ -8,7 +8,14 @@ import Card from './components/Card';
 import Chip from './components/Chip';
 import TextField from './components/TextField';
 import Select from './components/Select';
+import Navbar from './components/Navbar';
 import MenuLinks from './components/MenuLinks';
+
+import Overview from './scenes/Overview/index';
+import Requests from './scenes/Requests/index';
+import Sites from './scenes/Sites/index';
+import AddSite from './scenes/Sites/Add/index'
+import { ContainerStyles } from './styles/Container';
 
 const options = [
   { label: 'Option 1', value: 'option-1' },
@@ -20,9 +27,17 @@ const options = [
 function App() {
   return (
     <Router className="App">
-      <div style={{ marginTop: '60px' }}>
+      <Navbar />
+      <ContainerStyles>
         <MenuLinks />
-      </div>
+      </ContainerStyles>
+      <Routes>
+        <Route exact path="/" element={<Overview />}></Route>
+        <Route path="/overview" element={<Overview />}></Route>
+        <Route path="/requests" element={<Requests />}></Route>
+        <Route path="/sites" element={<Sites />}></Route>
+        <Route path="/sites/new" element={<AddSite />}></Route>
+      </Routes>
     </Router>
   );
 }

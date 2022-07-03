@@ -17,6 +17,10 @@ border-radius: 6px;
     color: #78122d;
     background-color: #ffece0;
 }
+&.storybook-chip--warn {
+    color: #7C4A04;
+    background-color: #FFF7D1;
+}
 `
 
 const types = {
@@ -24,6 +28,7 @@ const types = {
     fail: 'storybook-chip--fail',
     failed: 'storybook-chip--fail',
     failure: 'storybook-chip--fail',
+    warn: 'storybook-chip--warn',
 }
 
 const Chip = ({ text, type }) => {
