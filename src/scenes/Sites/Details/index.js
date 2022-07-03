@@ -65,12 +65,14 @@ const SiteDetails = () => {
     }
 
     const handleChange = (field, e) => {
-        console.log('e', e.target)
         setState({ ...state, [field]: e.target.value })
     }
 
+    const handleSubmit = (e) => {
+        console.log('handleSubmit called')
+    }
+
     if (!site.isLoaded) return <div></div>
-    console.log('site', site)
 
 
     const viewTableData = [
@@ -90,7 +92,7 @@ const SiteDetails = () => {
         { label: 'Under Review', value: 'review' },
         { label: 'Site is Live', value: 'site-live' },
     ]
-    console.log('state.name', state)
+
     const editTableData = [
         { label: 'Name', key: 'name', content: <TextField value={state.name} onChange={(e) => handleChange('name', e)} /> },
         { label: 'Description', key: 'description', content: <TextField value={state.description} onChange={(e) => handleChange('description', e)} /> },
@@ -107,7 +109,7 @@ const SiteDetails = () => {
                 <SiteDetailsStyles>
                     <h2>Site Details</h2>
                     <Table data={isEditing ? editTableData : viewTableData} />
-                    {isEditing && <Button type="primary">Submit Changes</Button>}
+                    {isEditing && <Button type="primary" onClick={handleSubmit}>Submit Changes</Button>}
                     <Button onClick={() => setIsEditing(!isEditing)}>
                         {isEditing ? 'Cancel' : 'Edit'}
                     </Button>

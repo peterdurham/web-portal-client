@@ -26,7 +26,7 @@ const Select = ({ options, onChange }) => {
         // placeholder={placeholder}
         // onChange={onChange}
         >
-            {options.map((option) => <option value={option.value}>
+            {options.map((option) => <option key={option.value} value={option.value}>
                 {option.label}
             </option>)}
         </SelectStyles>
