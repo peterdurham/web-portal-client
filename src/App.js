@@ -37,8 +37,9 @@ function App() {
         logoutUser();
         setAuthToken(false);
       }
+    } else {
+      navigate('/login')
     }
-    navigate('/login')
     // eslint-disable-next-line
   }, []);
 

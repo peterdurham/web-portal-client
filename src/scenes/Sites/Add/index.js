@@ -40,7 +40,7 @@ const AddSite = () => {
     const [state, setState] = useState({
         name: '',
         description: '',
-        status: '',
+        status: 'new',
         siteURL: '',
         codeRepositoryURL: '',
         domainHostingURL: '',
@@ -48,7 +48,6 @@ const AddSite = () => {
     })
 
     const handleChange = (field, e) => {
-        console.log('e', e.target)
         setState({...state, [field]: e.target.value})
     }
 
@@ -64,7 +63,6 @@ const AddSite = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('handleSubmit called with', e.target)
         const siteData = {
             name: state.name,
             description: state.description,
@@ -77,7 +75,6 @@ const AddSite = () => {
 
         try {
             const response = await axios.post("/api/sites", siteData);
-            console.log('response', response)
             navigate("/sites")
             // setErrors({});
             // setMessage("");
