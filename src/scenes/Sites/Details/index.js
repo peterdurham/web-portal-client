@@ -36,9 +36,7 @@ const SiteDetails = () => {
 
     useEffect(() => {
         fetchData();
-    }, []);
-
-
+    }, [fetchData]);
 
     async function fetchData() {
         const response = await axios.get(`/api/sites/${id}`);

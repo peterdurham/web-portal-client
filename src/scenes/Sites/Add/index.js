@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ContainerStyles } from '../../../styles/Container';
 import Card from '../../../components/Card';
 import Button from '../../../components/Button';

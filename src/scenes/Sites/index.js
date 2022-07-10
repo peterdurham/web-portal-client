@@ -11,6 +11,7 @@ const Sites = () => {
 
     useEffect(() => {
         fetchData();
+        // eslint-disable-next-line
     }, []);
 
     async function fetchData() {
@@ -24,7 +25,7 @@ const Sites = () => {
         <ContainerStyles>
             <Card>
                 <SitesHeaderStyles>
-                    <h1></h1>
+                    <h1>Sites</h1>
                     <Link to="/sites/new">
                         <Button type="primary">Add Site</Button>
                     </Link>

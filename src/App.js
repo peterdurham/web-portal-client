@@ -39,6 +39,7 @@ function App() {
       }
     }
     navigate('/login')
+    // eslint-disable-next-line
   }, []);
 
   const logoutUser = async () => {
