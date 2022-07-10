@@ -36,7 +36,8 @@ const SiteDetails = () => {
 
     useEffect(() => {
         fetchData();
-    }, [fetchData]);
+        // eslint-disable-next-line
+    }, []);
 
     async function fetchData() {
         const response = await axios.get(`/api/sites/${id}`);
